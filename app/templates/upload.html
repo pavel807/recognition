@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image for Face Recognition</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        label { display: block; margin-top: 10px; }
+        input[type="text"], input[type="file"] {
+            width: calc(100% - 22px); padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;
+        }
+        input[type="submit"] {
+            margin-top: 20px; padding: 10px 15px; background-color: #5cb85c; color: white; border: none; border-radius: 4px; cursor: pointer;
+        }
+        input[type="submit"]:hover { background-color: #4cae4c; }
+        .flash-messages { list-style: none; padding: 0; }
+        .flash-messages li { padding: 10px; margin-bottom: 10px; border-radius: 4px; }
+        .flash-messages .success { background-color: #dff0d8; color: #3c763d; border: 1px solid #d6e9c6; }
+        .flash-messages .error { background-color: #f2dede; color: #a94442; border: 1px solid #ebccd1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload New Face</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="file">Image File:</label>
+                <input type="file" name="file" id="file" accept="image/*" required>
+            </div>
+            <div>
+                <input type="submit" value="Upload Face">
+            </div>
+        </form>
+        <hr>
+        <a href="{{ url_for('index') }}">Back to Home</a> |
+        <a href="{{ url_for('list_faces') }}">View Known Faces</a>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
