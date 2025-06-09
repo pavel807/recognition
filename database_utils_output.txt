@@ -1,0 +1,5 @@
+Database initialized/checked at /app/app/../database/faces.db
+Added face for Test User 1
+Added face for Test User 2
+Retrieved: Name: Test User 1, Encoding shape: (128,)
+Retrieved: Name: Test User 2, Encoding shape: (128,)
