@@ -1,0 +1,7 @@
+opencv-python
+tensorflow
+PyQt5
+numpy
+scikit-learn
+# tensorflow-metal # For GPU acceleration on macOS - Not available on this platform
+py2app # For packaging on macOS
